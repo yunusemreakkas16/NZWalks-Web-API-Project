@@ -38,9 +38,9 @@
               "Title": "RegionsController.cs",
               "DocumentMoniker": "E:\\Projects\\.NetProject\\NZWalks\\NZWalks.API\\Controllers\\RegionsController.cs",
               "RelativeDocumentMoniker": "NZWalks.API\\Controllers\\RegionsController.cs",
-              "ToolTip": "E:\\Projects\\.NetProject\\NZWalks\\NZWalks.API\\Controllers\\RegionsController.cs",
-              "RelativeToolTip": "NZWalks.API\\Controllers\\RegionsController.cs",
-              "ViewState": "AgIAAHMAAAAAAAAAAAAcwIAAAAAfAAAAAAAAAA==",
+              "ToolTip": "E:\\Projects\\.NetProject\\NZWalks\\NZWalks.API\\Controllers\\RegionsController.cs*",
+              "RelativeToolTip": "NZWalks.API\\Controllers\\RegionsController.cs*",
+              "ViewState": "AgIAAHkAAAAAAAAAAAAcwJMAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-02T11:21:04.512Z",
               "EditorCaption": ""
@@ -55,8 +55,7 @@
               "RelativeToolTip": "NZWalks.API\\Models\\DTO\\UpdateRegionRequestDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-05T14:49:09.646Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-05T14:49:09.646Z"
             },
             {
               "$type": "Document",
@@ -68,8 +67,7 @@
               "RelativeToolTip": "NZWalks.API\\Models\\DTO\\AddRegionRequestDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-04T13:53:40.782Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-04T13:53:40.782Z"
             },
             {
               "$type": "Document",
@@ -81,8 +79,7 @@
               "RelativeToolTip": "NZWalks.API\\Models\\DTO\\RegionDto.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-04T08:57:51.338Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-04T08:57:51.338Z"
             },
             {
               "$type": "Document",
