@@ -89,6 +89,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "NZWalks.API.Controllers.WalksController",
+    "Method": "Create",
+    "RelativePath": "api/Walks",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "addWalkRequestDto",
+        "Type": "NZWalks.API.Models.DTO.AddWalkRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "NZWalks.API.Controllers.WalksController",
+    "Method": "GetAll",
+    "RelativePath": "api/Walks",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "NZWalks.API.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",

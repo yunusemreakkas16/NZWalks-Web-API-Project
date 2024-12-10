@@ -12,8 +12,13 @@ namespace NZWalks.API.Mappings
             CreateMap<AddRegionRequestDto, Region>().ReverseMap();
             CreateMap<UpdateRegionRequestDto, Region>().ReverseMap();
             //Source to the destionation!
+
+            CreateMap<AddWalkRequestDto, Walk>().ReverseMap();
+            CreateMap<Walk, WalkDto>().ReverseMap();
+
         }
 
 
     }
 }
+
