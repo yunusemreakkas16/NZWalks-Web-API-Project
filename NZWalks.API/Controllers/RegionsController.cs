@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NZWalks.API.CustomActionFilters;
 using NZWalks.API.Data;
 using NZWalks.API.Models.Domain;
 using NZWalks.API.Models.DTO;
@@ -75,8 +76,11 @@ RegionImageUrl = region.RegionImageUrl,
         // POST To Create New Region
         // POST: https://localhost:7280/api/regions
         [HttpPost]
+        [ValidateModel]
         public async Task<IActionResult> Create([FromBody] AddRegionRequestDto addRegionRequestDto)
         {
+
+
             // Map or Convert DTO to Domain Model
             var regionDomainModel = mapper.Map<Region>(addRegionRequestDto);
 
@@ -85,14 +89,14 @@ RegionImageUrl = region.RegionImageUrl,
 
             var regionDto = mapper.Map<RegionDto>(regionDomainModel);
 
-            return CreatedAtAction(nameof(GetById), new {id = regionDto.Id }, regionDto);
-
+            return CreatedAtAction(nameof(GetById), new { id = regionDto.Id }, regionDto);
         }
 
         // Update Region
         // PUT: https://localhost:7270/api/regions/{id}
         [HttpPut]
         [Route("{id:Guid}")]
+        [ValidateModel]
         public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] UpdateRegionRequestDto updateRegionRequestDto)
         {
             // Map DTO to Domain Model
@@ -108,8 +112,8 @@ RegionImageUrl = region.RegionImageUrl,
             // Convert Domain Model to DTO and return it
 
             return Ok(mapper.Map<RegionDto>(regionDomainModel));
-        }
 
+        }
         // Delete Region
         // DELETE: https://localhost:7270/api/regions/{id}
         [HttpDelete]
