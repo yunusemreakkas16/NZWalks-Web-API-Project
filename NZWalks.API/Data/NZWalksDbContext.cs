@@ -103,6 +103,13 @@ namespace NZWalks.API.Data
                     Name = "Southland",
                     Code = "STL",
                     RegionImageUrl = null
+                },
+                new Region
+                {
+                    Id = Guid.Parse("6340ff43-4e2f-4034-802a-85518d5dd21c"),
+                    Name = "Deneme",
+                    Code = "DNM",
+                    RegionImageUrl = null
                 }
             };
 

@@ -176,6 +176,22 @@
         "tags": [
           "Walks"
         ],
+        "parameters": [
+          {
+            "name": "filterOn",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filterQuery",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -337,7 +353,7 @@
         "required": [
           "description",
           "difficultyId",
-          "lenghtInKm",
+          "lengthInKm",
           "name",
           "regionId"
         ],
@@ -353,7 +369,7 @@
             "minLength": 1,
             "type": "string"
           },
-          "lenghtInKm": {
+          "lengthInKm": {
             "maximum": 50,
             "minimum": 0,
             "type": "number",
@@ -402,7 +418,7 @@
         "required": [
           "description",
           "difficultyId",
-          "lenghtInKm",
+          "lengthInKm",
           "name",
           "regionId"
         ],
@@ -418,7 +434,7 @@
             "minLength": 1,
             "type": "string"
           },
-          "lenghtInKm": {
+          "lengthInKm": {
             "maximum": 50,
             "minimum": 0,
             "type": "number",
