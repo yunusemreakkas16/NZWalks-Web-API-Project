@@ -29,7 +29,7 @@ namespace NZWalks.API.Controllers
                 var imageDomainModel = new Image
                 {
                     File = requestDto.File,
-                    FileExtension = Path.GetExtension(requestDto.FileName),
+                    FileExtension = Path.GetExtension(requestDto.File.FileName),
                     FileSizeInBytes = requestDto.File.Length,
                     FileName = requestDto.FileName,
                     FileDescription = requestDto.FileDescription,
