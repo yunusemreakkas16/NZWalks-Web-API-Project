@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Text.Json;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -19,12 +20,14 @@ namespace NZWalks.API.Controllers
         private readonly NZWalksDbContext dbContext;
         private readonly IRegionRepository regionRepository;
         private readonly IMapper mapper;
+        private readonly ILogger<RegionsController> logger;
 
-        public RegionsController(NZWalksDbContext dbContext, IRegionRepository regionRepository, IMapper mapper)
+        public RegionsController(NZWalksDbContext dbContext, IRegionRepository regionRepository, IMapper mapper, ILogger<RegionsController> logger)
         {
             this.dbContext = dbContext;
             this.regionRepository = regionRepository;
             this.mapper = mapper;
+            this.logger = logger;
         }
 
         // GET ALL REGIONS
@@ -32,29 +35,18 @@ namespace NZWalks.API.Controllers
         [HttpGet]
         [Authorize(Roles = "Reader")]
         public async Task<IActionResult> GetAll()
-        {
-            
+        {            
             // Get Data From Database - Domain models 
-                                                                            
+
             var regionDomain = await regionRepository.GetAllAsync();
 
-            /*
-// Map Domain Models to DTOs
-var regionsDto = new List<RegionDto>();
-foreach (var region in regionDomain)
-{
-regionsDto.Add(new RegionDto()
-{
-Id = region.Id,
-Code = region.Code,
-Name = region.Name,
-RegionImageUrl = region.RegionImageUrl,
-});
-}
-            */
-
             // Return DTOs
-            return Ok(mapper.Map<List<RegionDto>>(regionDomain)); 
+
+            logger.LogInformation($"Finished GetAllRegions request with data: {JsonSerializer.Serialize(regionDomain)}");
+
+            return Ok(mapper.Map<List<RegionDto>>(regionDomain));
+            
+
         }
 
         // GET SINGLE REGION (Get Region By ID)
