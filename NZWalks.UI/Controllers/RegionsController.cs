@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NZWalks.UI.Models;
 using NZWalks.UI.Models.DTO;
 
 namespace NZWalks.UI.Controllers
@@ -11,6 +12,8 @@ namespace NZWalks.UI.Controllers
         {
             this.httpClientFactory = httpClientFactory;
         }
+
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             List<RegionDto> response = new List<RegionDto>();
@@ -30,6 +33,45 @@ namespace NZWalks.UI.Controllers
             }
 
             return View(response);
+        }
+
+        //returns page to add a new region
+        [HttpGet]
+        public async Task<IActionResult> Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Add(AddRegionViewModel model)
+        {
+            try
+            {
+                //Add Region to Web API
+                var client = httpClientFactory.CreateClient();
+                var httpResponseMessage = await client.PostAsJsonAsync("https://localhost:7277/api/regions", model);
+                httpResponseMessage.EnsureSuccessStatusCode();
+            }
+            catch (Exception ex)
+            {
+                //log the exception
+                throw;
+            }
+            return RedirectToAction("Index", "Regions");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(Guid id)
+        {
+            var client = httpClientFactory.CreateClient();
+            var response = await client.GetFromJsonAsync<RegionDto>($"https://localhost:7277/api/regions/{id.ToString()}");
+
+            if (response is not null)
+            {
+                return View(response);
+            }
+
+            return View(null);
         }
     }
 }
