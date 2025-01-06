@@ -73,5 +73,41 @@ namespace NZWalks.UI.Controllers
 
             return View(null);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(RegionDto request)
+        {
+            try
+            {
+                //Edit Region in Web API
+                var client = httpClientFactory.CreateClient();
+                var httpResponseMessage = await client.PutAsJsonAsync($"https://localhost:7277/api/regions/{request.Id}", request);
+                httpResponseMessage.EnsureSuccessStatusCode();
+            }
+            catch (Exception ex)
+            {
+                //log the exception
+                throw;
+            }
+            return RedirectToAction("Index", "Regions");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            try
+            {
+                //Delete Region in Web API
+                var client = httpClientFactory.CreateClient();
+                var httpResponseMessage = await client.DeleteAsync($"https://localhost:7277/api/regions/{id}");
+                httpResponseMessage.EnsureSuccessStatusCode();
+            }
+            catch (Exception ex)
+            {
+                //log the exception
+                throw;
+            }
+            return RedirectToAction("Index", "Regions");
+        }
     }
 }
